@@ -12,6 +12,21 @@ for (var a of array) {
 }
 
 //for..each loop
-array.forEach(a => {
-   console.log(a) 
-});
+//example 1
+array.forEach((a,index) => {
+   console.log("The element is ",a,"and its index is",index) 
+})
+
+    array.forEach((index,a) => {
+      console.log("The element is ",a,"and its index is",index) 
+    })
+//exmaple 2
+obj={
+    "firstName": "Safrin",
+    "lastName":"bargana",
+    "age": 20
+}
+
+obj.forEach((value)=>{
+    console.log(value)
+})
