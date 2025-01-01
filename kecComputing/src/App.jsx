@@ -7,6 +7,9 @@ import Gallery from './Components/Samplefunc/Gallery';
 import Contact from './Components/Samplefunc/Contact';
 import NavBar from './Components/Samplefunc/Navbar';
 import Form from './Components/Samplefunc/Form';
+import UseEffect from './Components/Hooks/UseEffect';
+import UseRef from './Components/Hooks/UseRef';
+import ExamResults from './Components/Hooks/UseContext';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/about" element= {<About college = "Kongu Engineering" clg1 = "Kongu Arts" clg2 = "Naturopathy"/>} />
           <Route path="/gallery" element = {<Gallery />} />
           <Route path="/contact" element = {<Contact />} />
+          <Route path="/useeffect" element = {<UseEffect />} />
+          <Route path="/usecontext" element = {<ExamResults />} />
+          <Route path="/useref" element = {<UseRef />} />
         </Routes>
       </BrowserRouter>
       <Form/>

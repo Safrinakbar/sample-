@@ -1,19 +1,28 @@
 import React from "react";
-import '../../assets/css/Form.css'
+import '../../assets/css/Form.css';
 
-const Form= () =>{
-    return(
+const Form = () => {
+    return (
         <footer>
-        <div>
-            <form>
-                Name:<input type="text" name="name" id="name"/>
-                Phone number:<input type="number" name="pn" id="pn"/>
-                Email Id:<input type="mail" name="email" id="email"/>
-                <button type="button" >Submit</button>
-            </form>
-        </div>
+            <div>
+                <form>
+                    <label>
+                        Name:
+                        <input type="text" name="name" id="name" placeholder="Enter your name" />
+                    </label>
+                    <label>
+                        Phone Number:
+                        <input type="number" name="pn" id="pn" placeholder="Enter your phone number" />
+                    </label>
+                    <label>
+                        Email ID:
+                        <input type="email" name="email" id="email" placeholder="Enter your email" />
+                    </label>
+                    <button type="button">Submit</button>
+                </form>
+            </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Form
+export default Form;
