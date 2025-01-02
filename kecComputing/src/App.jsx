@@ -10,6 +10,7 @@ import Form from './Components/Samplefunc/Form';
 import UseEffect from './Components/Hooks/UseEffect';
 import UseRef from './Components/Hooks/UseRef';
 import ExamResults from './Components/Hooks/UseContext';
+import UseMemo from './Components/Hooks/UseMemo';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/useeffect" element = {<UseEffect />} />
           <Route path="/usecontext" element = {<ExamResults />} />
           <Route path="/useref" element = {<UseRef />} />
+          <Route path="/usememo" element = {<UseMemo />} />
         </Routes>
       </BrowserRouter>
       <Form/>
