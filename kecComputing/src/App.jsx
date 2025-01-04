@@ -11,6 +11,8 @@ import UseEffect from './Components/Hooks/UseEffect';
 import UseRef from './Components/Hooks/UseRef';
 import ExamResults from './Components/Hooks/UseContext';
 import UseMemo from './Components/Hooks/UseMemo';
+import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element = {<Home />} />
+          <Route path='/login' element = {<Login/>}/>
+          <Route path='/signup' element = {<SignUp/>}/>
+          <Route path="/home" element = {<Home />} />
           <Route path="/about" element= {<About college = "Kongu Engineering" clg1 = "Kongu Arts" clg2 = "Naturopathy"/>} />
           <Route path="/gallery" element = {<Gallery />} />
           <Route path="/contact" element = {<Contact />} />
