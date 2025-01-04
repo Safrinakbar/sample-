@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import '../../assets/css/Form.css';
+import { useNavigate } from "react-router-dom";
 
-const Form = () => {
+const Login = () => {
     const [formData, setFormData] = useState({
-        name: "",
-        phoneNumber: "",
-        email: ""
+        email: "",
+        password: ""
     });
 
     const [responseMessage, setResponseMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,15 +21,20 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:9001/form', {
-                method: 'POST',
+            const response = await fetch('http://localhost:9001/login', {
+                method: 'POST', // Changed to POST
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData) // Sends form data
             });
             const result = await response.json();
-            setResponseMessage(result.message || 'Submission successful');
+
+            if (result.isLoggedIn) {
+                navigate('/contact'); // Navigate to signup or home page on success
+            } else {
+                setResponseMessage(result.message || 'Login failed');
+            }
         } catch (err) {
             console.error('Error submitting form:', err);
             setResponseMessage('Error submitting form');
@@ -41,27 +46,7 @@ const Form = () => {
             <div>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Name:
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Enter your name"
-                        />
-                    </label>
-                    <label>
-                        Phone Number:
-                        <input
-                            type="text"
-                            name="phoneNumber"
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            placeholder="Enter your phone number"
-                        />
-                    </label>
-                    <label>
-                        Email ID:
+                        Email:
                         <input
                             type="email"
                             name="email"
@@ -70,7 +55,17 @@ const Form = () => {
                             placeholder="Enter your email"
                         />
                     </label>
-                    <button type="submit">Submit</button>
+                    <label>
+                        Password:
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="Enter your Password"
+                        />
+                    </label>
+                    <button type="submit">LOGIN</button>
                 </form>
                 {responseMessage && <p>{responseMessage}</p>}
             </div>
@@ -78,4 +73,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default Login;
