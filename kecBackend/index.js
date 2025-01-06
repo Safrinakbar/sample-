@@ -12,7 +12,7 @@ const PORT = 9001;
 app.use(express.json());
 
 // Connect to MongoDB
-mdb.connect("mongodb://localhost:27017/mydb").then(() => {
+mdb.connect('mongodb+srv://safrin:1234@users.zdkcs.mongodb.net/?retryWrites=true&w=majority&appName=users').then(() => {
     console.log("Mongodb Connection Successful");
 }).catch((err) => {
     console.error("Check your connection string", err);
